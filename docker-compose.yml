@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  ml-backend:
+    container_name: ml-backend
+    build: .
+    environment:
+      - WORKERS=1
+      - THREADS=4
+      - LOG_LEVEL=DEBUG
+      - LABEL_STUDIO_HOST=http://172.17.0.1:8080
+      - LABEL_STUDIO_API_KEY=5d39cf3f3a2fcda4cbde231dc710467b4b43ecc4
+    ports:
+      - "9090:9090"
+    # If images are uploaded from local files, we need to mount them.
+    # volumes:
+    #   - /PATH/TO/LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT/FOLDER:/FOLDER
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

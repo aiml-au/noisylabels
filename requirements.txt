@@ -1,0 +1,16 @@
+--extra-index-url https://download.pytorch.org/whl/cu113
+boto3~=1.26.103
+filelock==3.12.4
+gunicorn==20.1.0
+label-studio-ml @ git+https://github.com/HumanSignal/label-studio-ml-backend.git@4fa64e6623eb6cc740a3d109f3cdf48992d66621
+pydantic==1.10.*
+label-studio-sdk
+Pillow==10.0.0
+pandas==1.1.5
+scikit-learn==0.24.2
+torch==1.12.1+cu113
+torchvision
+tqdm==4.64.0
+requests
+torchnet
+datasets
